@@ -2,8 +2,8 @@
    🎨 IDENTIDAD VISUAL
    ========================== */
    :root {
-    --primary-color: #2E3A59;  /* Color principal extraído del logo */
-    --secondary-color: #E63946; /* Color acento */
+    --primary-color: #ff6dee87;  /* Color principal extraído del logo */
+    --secondary-color: #dbdbdb; /* Color acento */
     --background-color: #F8F9FA; /* Color de fondo */
     --text-color: #212529;  /* Texto principal */
     --muted-text-color: #6C757D; /* Texto secundario */
@@ -37,6 +37,8 @@ p {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+    padding-top:200px;
 }
 
 /* ==========================
@@ -67,6 +69,11 @@ p {
     text-align: center;
 }
 
+.section-one {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 /* ==========================
    📖 SECCIÓN: CONTEXTUALIZACIÓN
    ========================== */
@@ -90,6 +97,11 @@ p {
     padding: 40px;
 }
 
+.section-two {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 /* ==========================
    🔎 SECCIÓN: PROYECTOS EN DESARROLLO
    ========================== */
@@ -99,15 +111,14 @@ p {
 }
 
 .projects-container {
-    max-height: 70vh;
-    overflow-y: auto;
-    padding-right: 10px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
 }
 
 .project {
-    display: flex;
-    align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 .project.reverse {
@@ -142,6 +153,18 @@ p {
     text-decoration: underline;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project {
+    width: 100%;
+  }
+}
+
+.section-three {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
 /* ==========================
    📩 SECCIÓN: CONTACTO
    ========================== */
@@ -174,23 +197,60 @@ p {
     background: darkred;
 }
 
+.section-four {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 /* ==========================
    📋 COMPONENTE: MENU
    ========================== */
 .menu {
-    position: sticky;
-    top: 0;
+    position: relative;
+    transition: position 0.3s ease, bottom 0.3s ease, top 0.3s ease, opacity 0.3s ease;
     z-index: 1000;
+    opacity: 1;
+}
+
+.menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu.visible {
+    opacity: 1;
+}
+
+.menu.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.menu.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .menu .logo img {
-    height: 40px;
+    height: 96px;
+}
+
+.menu {
+    text-align: center;
 }
 
 .menu .menu-links {
@@ -235,4 +295,9 @@ header .menu-toggle {
     margin: 10px 0;
     text-align: center;
   }
+}
+
+/* Locomotive Scroll container */
+[data-scroll-container] {
+  overflow: hidden;
 }

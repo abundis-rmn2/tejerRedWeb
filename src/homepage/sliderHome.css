@@ -1,0 +1,70 @@
+.swiper-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* Ensure proper positioning for arrows and pagination */
+}
+
+.swiper-slide {
+    display: flex
+;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2rem;
+    color: #333;
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.swiper-pagination {
+  bottom: 20px; /* Position the pagination at the bottom */
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+.swiper-pagination-bullet {
+  background-color:#212529!important; /* Red bullets */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%; /* Make the bullets round */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #212529; /* Active bullet color */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #212529; /* Red arrows */
+  z-index: 10; /* Ensure arrows appear above other elements */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px; /* Adjust arrow size */
+}
+
+.swiper-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: 30px;
+}
+
+.swiper{
+    height: 100vh;
+}
+i.fas {
+    font-size: 24px;  /* Set the size of the icon */
+    color: #000;  /* Set the color of the icon */
+    margin-right: 10px;  /* Add space between icon and text */
+  }
+  
+  .swiper-slide h1 {
+    display: flex;
+    align-items: center;  /* Center align icon and heading text */
+  }
+  .swiper-slide p{
+    width: 100%;
+  }

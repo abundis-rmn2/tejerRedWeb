@@ -1,0 +1,56 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: sticky; /* Moved sticky behavior here */
+  top: 0;
+  z-index: 1000;
+  background-color: white; /* Ensure the menu has a background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.logo {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-links {
+  flex: 0 0 80%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.menu-links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .menu-links {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+}
