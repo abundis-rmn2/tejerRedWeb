@@ -1,128 +1,178 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React, { useRef } from "react"
+import "../styles/index.css"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
-
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
-
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
-
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
+const Menu = ({ scrollToSection }) => {
+  return (
+    <div className="menu">
+      <div className="logo">
+        <img src="/images/ruta_del_logo.png" alt="Logo" />
+      </div>
+      <nav className="menu-links">
+        <button onClick={() => scrollToSection("section2")}>Contexto</button>
+        <button onClick={() => scrollToSection("section3")}>Proyectos</button>
+        <button onClick={() => scrollToSection("section4")}>Contacto</button>
+      </nav>
     </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+  )
+}
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+const IndexPage = () => {
+  const sectionRefs = {
+    section1: useRef(null),
+    section2: useRef(null),
+    section3: useRef(null),
+    section4: useRef(null),
+  }
+
+  const scrollToSection = section => {
+    sectionRefs[section].current.scrollIntoView({ behavior: "smooth" })
+  }
+
+  return (
+    <div className="App">
+      <SectionOne scrollToNext={() => scrollToSection("section2")} ref={sectionRefs.section1} />
+      <Menu scrollToSection={scrollToSection} />
+      <SectionTwo ref={sectionRefs.section2} />
+      <SectionThree ref={sectionRefs.section3} />
+      <SectionFour ref={sectionRefs.section4} />
+    </div>
+  )
+}
+
+const SectionOne = React.forwardRef(({ scrollToNext }, ref) => {
+  return (
+    <section className="fullpage section-one" ref={ref}>
+      {/* Video de fondo */}
+      <video autoPlay muted loop className="background-video">
+        <source src="/videos/ruta_del_video.mp4" type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <div className="overlay">
+        {/* Aquí se implementaría la animación: punto de color, recorrido de línea, generación de branches y aparición de una red/diagrama de git */}
+        <div className="sora-animation">
+          {/* Pseudocódigo de animación según prompt para Sora */}
+        </div>
+        {/* Logo superpuesto */}
+        <div className="logo">
+          <img src="/images/ruta_del_logo.png" alt="Logo" />
+        </div>
+        {/* Botón para avanzar a la siguiente sección */}
+        <button onClick={scrollToNext} className="next-button">
+          Entrar
+        </button>
+      </div>
+    </section>
+  )
+})
+
+const SectionTwo = React.forwardRef((props, ref) => {
+  return (
+    <section className="fullpage section-two" ref={ref}>
+      <div className="slide">
+        <h2>Contextualización</h2>
+        <p>
+          Aquí se mostrará la información del dossier. Se pueden incorporar datos y análisis que contextualicen la crisis de desapariciones en México, resaltando cifras, testimonios y avances de los colectivos de búsqueda.
+        </p>
+      </div>
+    </section>
+  )
+})
+
+const Project = ({ title, description, image, links, reverse }) => {
+  return (
+    <div className={`project ${reverse ? "reverse" : ""}`}>
+      <div className="project-image">
+        <img src={image} alt={title} />
+      </div>
+      <div className="project-text">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <div className="project-links">
+          {links.map((link, index) => (
+            <a key={index} href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const SectionThree = React.forwardRef((props, ref) => {
+  // Párrafo dummy de aproximadamente 300 palabras.
+  const lorem300 =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ".repeat(20);
+  return (
+    <section className="fullpage section-three" ref={ref}>
+      <h2>Proyectos en Desarrollo</h2>
+      <div className="projects-container">
+        <Project
+          title="Reinterpretación poética de fichas de desaparecidos"
+          description={lorem300}
+          image="/images/ruta_imagen_1.jpg"
+          links={[
+            { label: "Pedir acceso", url: "#" },
+            { label: "GitHub", url: "#" },
+          ]}
+          reverse={false}
+        />
+        <Project
+          title="Cartografía para el análisis de la crisis de desapariciones en Jalisco"
+          description={lorem300}
+          image="/images/ruta_imagen_2.jpg"
+          links={[
+            { label: "Pedir acceso", url: "#" },
+            { label: "GitHub", url: "#" },
+          ]}
+          reverse={true}
+        />
+        <Project
+          title="Bitácora de Búsqueda - Ejemplo DECOFEM"
+          description={lorem300}
+          image="/images/ruta_imagen_3.jpg"
+          links={[{ label: "Enlace", url: "#" }]}
+          reverse={false}
+        />
+        <Project
+          title="Relación entre personas desaparecidas y fallecidas sin identificar mediante tatuajes"
+          description={lorem300}
+          image="/images/ruta_imagen_4.jpg"
+          links={[
+            { label: "Pedir acceso", url: "#" },
+            { label: "GitHub", url: "#" },
+          ]}
+          reverse={true}
+        />
+      </div>
+    </section>
+  );
+});
+
+const SectionFour = React.forwardRef((props, ref) => {
+  return (
+    <section className="fullpage section-four" ref={ref}>
+      <h2>Contacto</h2>
+      <p>
+        Invitamos a participar, cofinanciar, colaborar en la depuración de datos y proponer nuevas herramientas de búsqueda, esquematización y análisis para enfrentar la crisis humanitaria.
+      </p>
+      <form action="mailto:tejer.red@gmail.com" method="post" encType="text/plain">
+        <label>
+          Nombre:
+          <input type="text" name="nombre" required />
+        </label>
+        <label>
+          Correo:
+          <input type="email" name="correo" required />
+        </label>
+        <label>
+          Mensaje:
+          <textarea name="mensaje" required></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  )
+})
 
 export default IndexPage

@@ -1,0 +1,238 @@
+/* ==========================
+   🎨 IDENTIDAD VISUAL
+   ========================== */
+   :root {
+    --primary-color: #2E3A59;  /* Color principal extraído del logo */
+    --secondary-color: #E63946; /* Color acento */
+    --background-color: #F8F9FA; /* Color de fondo */
+    --text-color: #212529;  /* Texto principal */
+    --muted-text-color: #6C757D; /* Texto secundario */
+    --font-family: 'Inter', sans-serif;
+}
+
+/* ==========================
+   🏗️ ESTILOS GENERALES
+   ========================== */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.fullpage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ==========================
+   📌 SECCIÓN: INICIO
+   ========================== */
+.section-inicio {
+    position: relative;
+    height: 100vh;
+    background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.section-inicio video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-overlay {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+}
+
+/* ==========================
+   📖 SECCIÓN: CONTEXTUALIZACIÓN
+   ========================== */
+.section-contexto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.slides-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 40px;
+}
+
+/* ==========================
+   🔎 SECCIÓN: PROYECTOS EN DESARROLLO
+   ========================== */
+.section-proyectos {
+    padding: 50px 10%;
+    background: #FFFFFF;
+}
+
+.projects-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.project.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-image {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.project-text {
+    flex: 0 0 70%;
+    max-width: 70%;
+    text-align: justify;
+}
+
+.project-links a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   📩 SECCIÓN: CONTACTO
+   ========================== */
+.section-contacto {
+    padding: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+.contact-form button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+    background: darkred;
+}
+
+/* ==========================
+   📋 COMPONENTE: MENU
+   ========================== */
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu .logo img {
+    height: 40px;
+}
+
+.menu .menu-links {
+    display: flex;
+    gap: 15px;
+}
+
+.menu .menu-links button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.menu .menu-links button:hover {
+    color: #007BFF;
+}
+
+header .menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  header .menu-toggle {
+    display: block;
+  }
+
+  header .header-menu {
+    display: none;
+    width: 100%;
+  }
+
+  header .header-menu a {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
