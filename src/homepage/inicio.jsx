@@ -44,9 +44,6 @@ const Inicio = React.forwardRef(({ scrollToNext }, ref) => {
       </video>
       <div className="overlay">
         <SwiperComponent /> {/* Add SwiperComponent here */}
-        <button onClick={scrollToNext} className="next-button">
-          Entrar
-        </button>
       </div>
     </section>
   );

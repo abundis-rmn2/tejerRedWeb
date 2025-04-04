@@ -87,23 +87,28 @@ const IndexPage = () => {
 
   const scrollToSection = (section) => {
     if (locoScrollRef.current && sectionRefs[section].current) {
+      const menuHeight = document.querySelector("nav").offsetHeight; // Dynamically get menu height
       locoScrollRef.current.scrollTo(sectionRefs[section].current, {
         duration: 1,
-        offset: 0,
+        offset: -menuHeight, // Use menu height as offset
       });
     }
   };
 
   return (
     <>
-    <Menu scrollToSection={scrollToSection} menuPosition={menuPosition} menuVisible={menuVisible} />
+      <Menu 
+        scrollToSection={scrollToSection} 
+        menuPosition={menuPosition} 
+        menuVisible={menuVisible} 
+      />
 
-    <div className="App" ref={containerRef} data-scroll-container>
-      <Inicio scrollToNext={() => scrollToSection("section2")} ref={sectionRefs.section1} />
-      <Contexto ref={sectionRefs.section2} />
-      <Proyectos ref={sectionRefs.section3} />
-      <Contacto ref={sectionRefs.section4} />
-    </div>
+      <div className="App" ref={containerRef} data-scroll-container>
+        <Inicio ref={sectionRefs.section1} />
+        <Contexto ref={sectionRefs.section2} />
+        <Proyectos ref={sectionRefs.section3} />
+        <Contacto ref={sectionRefs.section4} />
+      </div>
     </>
   );
 };

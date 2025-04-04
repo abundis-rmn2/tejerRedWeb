@@ -7,6 +7,7 @@
   z-index: 1000;
   background-color: white; /* Ensure the menu has a background */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  height: 5rem;
 }
 
 .menu-container {
