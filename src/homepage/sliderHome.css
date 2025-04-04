@@ -18,9 +18,8 @@
     align-content: space-around;
 }
 
-.swiper-pagination {
-  bottom: 20px; /* Position the pagination at the bottom */
-  z-index: 10; /* Ensure it appears above other elements */
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  height: calc(150px);
 }
 
 .swiper-pagination-bullet {
@@ -49,19 +48,14 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-    left: 30px;
 }
 
 .swiper{
-    height: 100vh;
+    height: calc(100vh - 200px);
 }
-i.fas {
-    font-size: 24px;  /* Set the size of the icon */
-    color: #000;  /* Set the color of the icon */
-    margin-right: 10px;  /* Add space between icon and text */
-  }
-  
-  .swiper-slide h1 {
+
+    .swiper-slide h1 {
+    color:black;
     display: flex;
     align-items: center;  /* Center align icon and heading text */
   }

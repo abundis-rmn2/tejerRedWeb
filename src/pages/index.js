@@ -17,6 +17,9 @@ const IndexPage = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // Expose scrollToSection globally
+    window.scrollToSection = scrollToSection;
+
     gsap.registerPlugin(ScrollTrigger);
 
     import("locomotive-scroll").then((module) => {
