@@ -1,15 +1,10 @@
 import React from "react";
+import DesaparicionesSwiper from "./contextoSlider"; // Ensure this is a default import and the path is correct
 
 const Contexto = React.forwardRef((props, ref) => {
   return (
     <section className="fullpage section-two" ref={ref}>
-      <div className="slide">
-        <h2>Contextualización</h2>
-        <p>
-          Aquí se mostrará la información del dossier. Se pueden incorporar datos y análisis que
-          contextualicen la crisis de desapariciones en México.
-        </p>
-      </div>
+      <DesaparicionesSwiper />
     </section>
   );
 });
