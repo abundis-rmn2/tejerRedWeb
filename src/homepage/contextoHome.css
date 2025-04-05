@@ -56,22 +56,22 @@
   position: relative;
 }
 
-.contexto-svg {
-  position: relative;
-  width: 100%;
-  height: auto;
-  cursor: pointer;
+.inline-svg-container h1 {
+    font-size: 4em;
+    color:rgba(211, 10, 10, 0.8);
+    text-align: center;
+    width: 100%;
+    border: 2px solid rgba(211, 10, 10, 0.8);
+    padding: 20px;
 }
 
-.contexto-svg svg {
-  width: 100%;
-  height: auto;
+.inline-svg svg {
+    width: 100vw;
+    height: 100vh;
+    padding: 2%;
+    margin-bottom: 5%;
 }
 
-.slide-image {
-  max-width: 100%;
-  height: auto;
-}
 
 .slide-background {
   width: 100%;
@@ -88,10 +88,11 @@
 .slide-content {
   position: relative;
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
 }
 
 .slide-title {
@@ -121,13 +122,32 @@
   animation: slide-in 0.5s ease-in-out;
 }
 
-.slide-content h3 {
-  font-size: 4.5rem;
-  margin:0;
+.swiper-slide h3 {
+    font-size: 3rem;
+    color:rgba(0, 0, 0, 0.8)}
+
+.swiper-slide p {
+        font-size: 2.7rem;
+        text-align: justify;
+    }
+.swiper-slide p a {
+    color: rgba(211, 10, 10, 0.8);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(211, 10, 10, 0);
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.bullet-content p {
-  font-size: 1rem;
+.swiper-slide p a:hover {
+    color: rgba(211, 10, 10, 0.8);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(211, 10, 10, 0);
+    border-radius: 10px;
+    background: linear-gradient(45deg,rgba(211, 10, 10, 0.1) 5%, rgba(211, 10, 10, 0.1) 95%);
 }
 
 h2 {
